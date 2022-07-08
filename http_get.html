@@ -1,0 +1,66 @@
+<html ng-app="testApp">
+<head>
+    
+    <link data-require="bootstrap@4.0.5" data-semver="4.0.5" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <!-- <script data-require="bootstrap@4.0.5" data-semver="4.0.5" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script> -->
+    <script data-require="angularjs@1.6.2" data-semver="1.6.2" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
+
+<title>AngularJS $Http service tutorial example</title>
+    
+</head>
+<body ng-controller="testController">
+            <div class="form-group" ng-show="userid">
+                    <div ng-model="user.id"></div>
+            </div>
+                                     <!-- Name -->
+            <div class="form-group">
+                <label class="control-label col-md-2">Name:</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="user.Name"/>
+                </div>
+            </div>
+            
+                                    <!-- City -->
+            <div class="form-group">
+                <label class="control-label col-md-2">City:</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="user.City" />
+                </div>
+            </div>
+            
+                                    <!--Country  -->     
+            <div class="form-group">
+                <label class="control-label col-md-2">Country:</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="user.Country"/>
+                </div>
+            </div>
+            
+            
+            <input type="button" value="Add Data" ng-click="postdata(name, city, country)" class="btn btn-info btn-sm">
+            <br><br>
+            <input type="button" value="Update Data" ng-click="updateData()" class="btn btn- btn-success" ng-show="update"> 
+    
+            <h2>Details:</h2>
+      
+        <table class="table table-striped">
+                <th>ID</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Action</th>
+                <tr ng-repeat="user in data">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.Name }}</td>
+                    <td>{{user.City }}</td>
+                    <td>{{ user.Country }}</td>
+                    <td>
+                        <button class="btn btn-success btn-sm" ng-click="editData(user)">Edit</button>
+                        <button class="btn btn-danger btn-sm" ng-click="deleteData(user)">Delete</button>
+                    </td>
+                </tr>
+        </table>
+        <br><br>
+    <script src="script.js"></script>
+</body>
+</html>
